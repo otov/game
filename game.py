@@ -28,6 +28,7 @@ def btnclick(button):
     return 
 
 
+
 btn1=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn1))
 btn2=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn2))
 btn3=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn3))
@@ -91,6 +92,8 @@ def reset():
     btn8["text"]=""
     btn9["text"]=""
     return
+
+
 
 
 Mainmenu=Menu(gamewindow)
