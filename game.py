@@ -8,9 +8,6 @@ playerx=True
 count=0
 
 
-
-
-
 def btnclick(button):
     global playerx,count
     if button["text"]==" "and playerx==True:
@@ -26,7 +23,6 @@ def btnclick(button):
     else:
         messagebox.showerror("TicTacToe","Button is already presed!")
     return 
-
 
 
 btn1=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn1))
@@ -69,6 +65,7 @@ def disablebutton():
     btn9.config(state=DISABLED)
     return 0
 
+
 def reset():
     global count
     count=0
@@ -82,28 +79,40 @@ def reset():
     btn8.config(state=NORMAL)
     btn9.config(state=NORMAL)
     
-    btn1["text"]=""
-    btn2["text"]=""
-    btn3["text"]=""
-    btn4["text"]=""
-    btn5["text"]=""
-    btn6["text"]=""
-    btn7["text"]=""
-    btn8["text"]=""
-    btn9["text"]=""
+
+    btn1["text"]=" "
+    btn2["text"]=" "
+    btn3["text"]=" "
+    btn4["text"]=" "
+    btn5["text"]=" "
+    btn6["text"]=" "
+    btn7["text"]=" "
+    btn8["text"]=" "
+    btn9["text"]=" "
     return
 
 
+def gamerules():
+    Newwindow=Toplevel()
+    Newwindow.title("Game rules")
+    Newwindow.geometry("300x300")
+    Rules=Label(Newwindow,text="One player uses the symbol X. The other player uses O. /n First player that places three of their symbols in a row (Horizontaly, vertically, diagonally) wins!")
+    Rules.grid(row=0,column=0)
+    return 0
 
 
 Mainmenu=Menu(gamewindow)
 gamewindow.config(menu=Mainmenu)
 
+
 options=Menu(Mainmenu,tearoff=False)
 Mainmenu.add_cascade(label="Options",menu=options)
 
+
 options.add_command(label="New game",command=reset)
-options.add_command
+options.add_command(label="Exit game",command=gamewindow.quit)
+
+Mainmenu.add_command(label="Game rules",command=gamerules)
 
 
 btn1.grid(row=0,column=0)
@@ -115,7 +124,6 @@ btn6.grid(row=1,column=2)
 btn7.grid(row=2,column=0)
 btn8.grid(row=2,column=1)
 btn9.grid(row=2,column=2)
-
 
 
 gamewindow.mainloop()
