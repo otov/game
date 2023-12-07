@@ -21,19 +21,19 @@ def btnclick(button):
         count+=1
         checkwinner()
     else:
-        messagebox.showerror("TicTacToe","Button is already presed!")
+        messagebox.showerror("TicTacToe","This button is already presed!")
     return 
 
 
-btn1=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn1))
-btn2=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn2))
-btn3=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn3))
-btn4=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn4))
-btn5=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn5))
-btn6=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn6))
-btn7=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn7))
-btn8=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn8))
-btn9=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn9))
+btn1=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn1),bg="#32CD32",activebackground="#32CD32",bd=5)
+btn2=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn2),bg="#FF6103",activebackground="#FF6103",bd=5)
+btn3=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn3),bg="#32CD32",activebackground="#32CD32",bd=5)
+btn4=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn4),bg="#FF6103",activebackground="#FF6103",bd=5)
+btn5=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn5),bg="#32CD32",activebackground="#32CD32",bd=5)
+btn6=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn6),bg="#FF6103",activebackground="#FF6103",bd=5)
+btn7=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn7),bg="#32CD32",activebackground="#32CD32",bd=5)
+btn8=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn8),bg="#FF6103",activebackground="#FF6103",bd=5)
+btn9=Button(gamewindow,text=" ",width=6,height=3,font=("Helvica",24),command=lambda:btnclick(btn9),bg="#32CD32",activebackground="#32CD32",bd=5)
 
 
 def checkwinner():
@@ -43,7 +43,7 @@ def checkwinner():
         winner=True
         messagebox.showinfo("TicTacToe", "Player X wins!")
         disablebutton()
-    elif (btn1["text"]=="O"and btn2["text"]=="O" and btn3["text"]=="O" or btn4["text"]=="O"and btn5["text"]=="O" and btn6["text"]=="O" or btn7["text"]=="O"and btn8["text"]=="O" and btn9["text"]=="O" or btn1["text"]=="O"and btn4["text"]=="O" and btn7["text"]=="O" or btn2["text"]=="O"and btn5["text"]=="O" and btn8["text"]=="O" or btn3["text"]=="O"and btn6["text"]=="O" and btn9["text"]=="O" or btn1["text"]=="O"and btn5["text"]=="O" and btn9["text"]=="O" or btn3["text"]=="O"and btn6["text"]=="O" and btn7["text"]=="O"):
+    elif (btn1["text"]=="O"and btn2["text"]=="O" and btn3["text"]=="O" or btn4["text"]=="O"and btn5["text"]=="O" and btn6["text"]=="O" or btn7["text"]=="O"and btn8["text"]=="O" and btn9["text"]=="O" or btn1["text"]=="O"and btn4["text"]=="O" and btn7["text"]=="O" or btn2["text"]=="O"and btn5["text"]=="O" and btn8["text"]=="O" or btn3["text"]=="O"and btn6["text"]=="O" and btn9["text"]=="O" or btn1["text"]=="O"and btn5["text"]=="O" and btn9["text"]=="O" or btn3["text"]=="O"and btn5["text"]=="O" and btn7["text"]=="O"):
         winner=True
         messagebox.showinfo("TicTacToe", "Player O wins!")
         disablebutton()
@@ -67,8 +67,9 @@ def disablebutton():
 
 
 def reset():
-    global count
+    global count, playerx
     count=0
+    playerx=True
     btn1.config(state=NORMAL)
     btn2.config(state=NORMAL)
     btn3.config(state=NORMAL)
@@ -95,9 +96,13 @@ def reset():
 def gamerules():
     Newwindow=Toplevel()
     Newwindow.title("Game rules")
-    Newwindow.geometry("300x300")
-    Rules=Label(Newwindow,text="One player uses the symbol X. The other player uses O. /n First player that places three of their symbols in a row (Horizontaly, vertically, diagonally) wins!")
-    Rules.grid(row=0,column=0)
+    Newwindow.geometry("520x100")
+    Rules=Label(Newwindow,text="One player uses the symbol X. The other player uses O. ")
+    Rules.grid(row=1,column=0)
+    Rules=Label(Newwindow,text="The players take turns placing one symbol in one square. A square can contain only one symbol!")
+    Rules.grid(row=2,column=0)
+    Rules=Label(Newwindow,text="First player that places three of their symbols in a row (Horizontaly, vertically, diagonaly) wins!")
+    Rules.grid(row=3,column=0)
     return 0
 
 
